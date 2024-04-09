@@ -67,7 +67,26 @@ define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resour
 
 add_action( 'init', array( 'Genesis_Author_Pro_CPT', 'init' ), 1 );
 
+add_action( 'init', 'author_pro_init' );
+/**
+ * Action added on the init hook.
+ * @access public
+ * @return void
+ */
+
+function author_pro_init(){
+
+	add_action( 'after_setup_theme'         , array( 'Genesis_Author_Pro_CPT', 'maybe_add_image_size'              )        );
+	add_action( 'load-post.php'             , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'                )        );
+	add_action( 'load-post-new.php'         , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'                )        );
+	add_action( 'load-edit-tags.php'        , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
+	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro'    , 'bulk_updated_messages'             ), 10, 2 );
+	add_action( 'save_post'                 , array( 'Genesis_Author_Pro'    , 'maybe_do_save'                     ), 10, 2 );
+
+}
+
 add_action( 'genesis_init', 'genesis_author_pro_init' );
+
 /**
  * Action added on the genesis_init hook.
  * All actions except the init and activate hook are loaded through this function.
@@ -76,21 +95,14 @@ add_action( 'genesis_init', 'genesis_author_pro_init' );
  * @access public
  * @return void
  */
+
 function genesis_author_pro_init(){
 
 	$archive_page_hook = sprintf( 'load-%1$s_page_genesis-cpt-archive-%1$s', 'books' );
-
-	add_filter( 'template_include', array( 'Genesis_Author_Pro_Template', 'maybe_include_template' ) );
-
 	add_action( 'init'                      , array( 'Genesis_Author_Pro_CPT', 'maybe_remove_genesis_sidebar_form' ), 11    );
 	add_action( 'admin_init'                , array( 'Genesis_Author_Pro_CPT', 'remove_genesis_layout_options'     ), 11    );
-	add_action( 'after_setup_theme'         , array( 'Genesis_Author_Pro_CPT', 'maybe_add_image_size'              )        );
-	add_action( 'load-post.php'             , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'                )        );
-	add_action( 'load-post-new.php'         , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'                )        );
-	add_action( 'load-edit-tags.php'        , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
-	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
-	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro'    , 'bulk_updated_messages'             ), 10, 2 );
-	add_action( 'save_post'                 , array( 'Genesis_Author_Pro'    , 'maybe_do_save'                     ), 10, 2 );
+	add_filter( 'template_include', array( 'Genesis_Author_Pro_Template', 'maybe_include_template' ) );
+ 	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
 	add_action( 'widgets_init'              , array( 'Genesis_Author_Pro'    , 'widgets_init'                      )        );
-
+	 
 }
