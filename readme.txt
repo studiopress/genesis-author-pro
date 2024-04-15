@@ -3,11 +3,12 @@ Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath
 Tags: genesis, authors, books
 Requires at least: 5.0
 Tested up to: 6.5
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a book library to any Genesis child theme to attractively display book details in single and archive views.
+Adds a book library to any any WordPress theme.
+In Genesis child theme also attractively display book details in single and archive views.
 
 == Description ==
 
@@ -55,7 +56,7 @@ There are instances where the returned date may not correctly match. `4 10 1999`
 
 The date will be stored in a computer readable format and then output following the date format set in the WordPress options.
 
-Templates are built into the plugin with default CSS to create the basic layout for all child themes. Templates follow standard WP template hierarchy so if the template is in the child theme, that will override the template in the plugin. Templates include:
+For Genesis child themes also offer templates that are built into the plugin with default CSS to create the basic layout for all child themes. Templates follow standard WP template hierarchy so if the template is in the child theme, that will override the template in the plugin. Templates include:
 
 * single-books.php
 * archive-books.php
@@ -71,6 +72,9 @@ Templates are built into the plugin with default CSS to create the basic layout 
 
 
 == Changelog ==
+
+= 1.2 =
+* You can use now the plugin with other themes, not only Genesis child themes.
 
 = 1.1 =
 * Added compatibility with the block editor.

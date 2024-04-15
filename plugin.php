@@ -4,7 +4,7 @@
 Plugin Name: Genesis Author Pro
 Plugin URI: https://wordpress.org/plugins/genesis-author-pro/
 Description: Adds default Book CPT to any Genesis HTML5 theme.
-Version: 1.1
+Version: 1.2
 Author: OsomPress
 Author URI: https://www.osompress.com/
 Text Domain: genesis-author-pro
@@ -102,7 +102,7 @@ function genesis_author_pro_init(){
 	add_action( 'init'                      , array( 'Genesis_Author_Pro_CPT', 'maybe_remove_genesis_sidebar_form' ), 11    );
 	add_action( 'admin_init'                , array( 'Genesis_Author_Pro_CPT', 'remove_genesis_layout_options'     ), 11    );
 	add_filter( 'template_include', array( 'Genesis_Author_Pro_Template', 'maybe_include_template' ) );
- 	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
+	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
 	add_action( 'widgets_init'              , array( 'Genesis_Author_Pro'    , 'widgets_init'                      )        );
-	 
+
 }
