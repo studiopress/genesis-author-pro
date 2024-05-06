@@ -73,7 +73,7 @@ For Genesis child themes also offer templates that are built into the plugin wit
 
 == Changelog ==
 
-= 1.2.1 =
+= 1.2.2 =
 * Improvement managing the additional image size (author-pro-image).
 
 = 1.2 =
