@@ -1,9 +1,9 @@
 <?php
 /*
 
-Plugin Name: Genesis Author Pro
+Plugin Name: Osom Author Pro
 Plugin URI: https://wordpress.org/plugins/genesis-author-pro/
-Description: Adds default Book CPT to any Genesis HTML5 theme.
+Description: Adds a Book CPT and fields to display theme beatifully.
 Version: 2.0
 Author: OsomPress
 Author URI: https://www.osompress.com/
@@ -12,7 +12,7 @@ Domain Path /languages/
 
 */
 
-if ( !defined( 'ABSPATH' ) ) {
+if ( ! defined( 'ABSPATH' ) ) {
 	die( "Sorry, you are not allowed to access this page directly." );
 }
 

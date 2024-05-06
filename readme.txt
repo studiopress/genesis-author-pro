@@ -1,4 +1,4 @@
-=== Genesis Author Pro ===
+=== Osom Author Pro ===
 Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath, jivedig, osompress, esther_sola, nahuai
 Tags: genesis, authors, books
 Requires at least: 5.0
@@ -7,12 +7,13 @@ Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Adds a book library to any any WordPress theme.
-In Genesis child theme also attractively display book details in single and archive views.
+Adds a book library to any WordPress theme.
+You'll be able to display the book details (Price, ISBN, author...) using native blocks.
+Additionally in Genesis child themes it also provides a layouts for a single and archive views.
 
 == Description ==
 
-The Genesis Author Pro plugin creates a library which allows you to add books to your site. The books can have custom information added including:
+The Osom Author Pro plugin creates a library which allows you to add books to your site. The books can have custom information added including:
 
 * Featured Text
 * Price
@@ -26,7 +27,7 @@ The Genesis Author Pro plugin creates a library which allows you to add books to
 
 In addition to the custom book data, there are three taxonomies created: "Author," "Series," and "Tags." These allow you and your site visitors to sort and organize the books in your library.
 
-The Genesis Author Pro Featured Book widget will allow you to select a book from the library and feature it in any widgeted area of your website.
+The Osom Author Pro Featured Book widget will allow you to select a book from the library and feature it in any widgeted area of your website.
 
 Optional output from the widget includes:
 
