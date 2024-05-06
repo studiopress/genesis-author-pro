@@ -165,6 +165,8 @@ function osom_author_pro_get_metadata_value( $key ) {
 	// Extract the value based on key
 	$value = $meta_value[ $key ] ?? __( 'Value not set', 'genesis-author-pro' );
 
+	if ($key == 'publication_date') $value = date_i18n( get_option( 'date_format' ), $value );
+
 	return esc_html( $value );
 }
 
@@ -329,7 +331,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 						'content' => array(
 							'source' => 'osom-author-pro/book-publication-date',
 							'args'   => array(
-								'key' => date('F j, Y', $publication_date),
+								'key' => 'publication_date',
 							),
 						),
 					),
