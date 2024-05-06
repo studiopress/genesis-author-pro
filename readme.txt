@@ -3,7 +3,7 @@ Contributors: nick_thegeek, dreamwhisper, laurenmancke, studiopress, marksabbath
 Tags: genesis, authors, books
 Requires at least: 5.0
 Tested up to: 6.5
-Stable tag: 1.2
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,6 +72,9 @@ For Genesis child themes also offer templates that are built into the plugin wit
 
 
 == Changelog ==
+
+= 1.2.1 =
+* Improvement managing the additional image size (author-pro-image).
 
 = 1.2 =
 * You can use now the plugin with other themes, not only Genesis child themes.
