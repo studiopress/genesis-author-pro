@@ -110,7 +110,7 @@ add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'maybe_add_ima
 add_action( 'init', 'osom_author_pro_register_block_bindings' );
 function osom_author_pro_register_block_bindings() {
 	$bindings = array(
-		'osom-author-pro/book-price' => array(
+		'osom-author-pro/book-featured-text' => array(
 			'label' => __( 'Featured Text', 'genesis-author-pro' ),
 			'key' => 'featured_text',
 		),
