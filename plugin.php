@@ -165,7 +165,9 @@ function osom_author_pro_get_metadata_value( $key ) {
 	// Extract the value based on key
 	$value = $meta_value[ $key ] ?? __( 'Value not set', 'genesis-author-pro' );
 
-	if ($key == 'publication_date') $value = date_i18n( get_option( 'date_format' ), $value );
+	if ($key == 'publication_date') {
+		$value = date_i18n( get_option( 'date_format' ), $value );
+	}
 
 	return esc_html( $value );
 }
@@ -180,7 +182,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Featured Text',
 			'icon'       => 'book-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'featured' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -204,7 +206,6 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Book Price',
 			'icon'       => 'money-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -219,6 +220,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 				),
 				'placeholder' => __('Book price'),
 			),
+			'keywords'   => array( 'book', 'author pro', 'price' ),
 		);
 	}
 	
@@ -228,7 +230,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'ISBN',
 			'icon'       => 'book-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'isbn' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -252,7 +254,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Book Publisher',
 			'icon'       => 'building',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'publisher' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -276,7 +278,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Book Editor',
 			'icon'       => 'edit',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'editor' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -300,7 +302,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Book Edition',
 			'icon'       => 'book',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'edition' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -324,7 +326,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Book Publication Date',
 			'icon'       => 'calendar-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'publication date', 'date' ),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
@@ -348,7 +350,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Book Available In',
 			'icon'       => 'admin-site-alt3',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro' ),
+			'keywords'   => array( 'book', 'author pro', 'available'),
 			'attributes' => array(
 				'metadata' => array(
 					'bindings' => array(
