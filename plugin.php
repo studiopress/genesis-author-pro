@@ -10,9 +10,9 @@ Author URI: https://www.osompress.com/
 Text Domain: genesis-author-pro
 Domain Path /languages/
 
-*/
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if ( !defined( 'ABSPATH' ) ) {
 	die( "Sorry, you are not allowed to access this page directly." );
 }
 
@@ -37,7 +37,7 @@ add_action( 'plugins_loaded', 'genesis_author_pro_text_domain' );
  * @param string $class
  * @return void
  */
-function gapro_autoloader($class) {
+function gapro_autoloader( $class ) {
 
 	$classes = array(
 		'Genesis_Author_Pro'               => 'class.Genesis_Author_Pro.php',
@@ -51,8 +51,8 @@ function gapro_autoloader($class) {
 		'Genesis_Author_Pro_Widget_Output' => 'class.Genesis_Author_Pro_Widget_Output.php',
 	);
 
-	if( isset( $classes[$class] ) ) {
-		require_once( GENESIS_AUTHOR_PRO_CLASSES_DIR . $classes[$class] );
+	if ( isset( $classes[$class] ) ) {
+		require_once GENESIS_AUTHOR_PRO_CLASSES_DIR . $classes[$class];
 	}
 
 }
@@ -60,10 +60,10 @@ spl_autoload_register( 'gapro_autoloader' );
 
 register_activation_hook( __FILE__, array( 'Genesis_Author_Pro_Activation', 'activate' ) );
 
-define( 'GENESIS_AUTHOR_PRO_CLASSES_DIR'  , dirname(        __FILE__ ) . '/classes/'   );
-define( 'GENESIS_AUTHOR_PRO_FUNCTIONS_DIR', dirname(        __FILE__ ) . '/functions/' );
-define( 'GENESIS_AUTHOR_PRO_TEMPLATES_DIR', dirname(        __FILE__ ) . '/templates/' );
-define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resources/'  );
+define( 'GENESIS_AUTHOR_PRO_CLASSES_DIR', dirname( __FILE__ ) . '/classes/' );
+define( 'GENESIS_AUTHOR_PRO_FUNCTIONS_DIR', dirname( __FILE__ ) . '/functions/' );
+define( 'GENESIS_AUTHOR_PRO_TEMPLATES_DIR', dirname( __FILE__ ) . '/templates/' );
+define( 'GENESIS_AUTHOR_PRO_RESOURCES_URL', plugin_dir_url( __FILE__ ) . 'resources/' );
 
 add_action( 'init', array( 'Genesis_Author_Pro_CPT', 'init' ), 1 );
 
@@ -73,13 +73,13 @@ add_action( 'init', 'author_pro_init' );
  * @access public
  * @return void
  */
-function author_pro_init(){
+function author_pro_init() {
 
-	add_action( 'load-post.php'             , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'                )        );
-	add_action( 'load-post-new.php'         , array( 'Genesis_Author_Pro'    , 'maybe_do_book_meta'                )        );
-	add_action( 'load-edit-tags.php'        , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
-	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro'    , 'bulk_updated_messages'             ), 10, 2 );
-	add_action( 'save_post'                 , array( 'Genesis_Author_Pro'    , 'maybe_do_save'                     ), 10, 2 );
+	add_action( 'load-post.php', array( 'Genesis_Author_Pro', 'maybe_do_book_meta' ) );
+	add_action( 'load-post-new.php', array( 'Genesis_Author_Pro', 'maybe_do_book_meta' ) );
+	add_action( 'load-edit-tags.php', array( 'Genesis_Author_Pro', 'maybe_enqueue_scripts' ) );
+	add_filter( 'bulk_post_updated_messages', array( 'Genesis_Author_Pro', 'bulk_updated_messages' ), 10, 2 );
+	add_action( 'save_post', array( 'Genesis_Author_Pro', 'maybe_do_save' ), 10, 2 );
 
 }
 
@@ -92,14 +92,14 @@ add_action( 'genesis_init', 'genesis_author_pro_init' );
  * @access public
  * @return void
  */
-function genesis_author_pro_init(){
+function genesis_author_pro_init() {
 
 	$archive_page_hook = sprintf( 'load-%1$s_page_genesis-cpt-archive-%1$s', 'books' );
-	add_action( 'init'                      , array( 'Genesis_Author_Pro_CPT', 'maybe_remove_genesis_sidebar_form' ), 11    );
-	add_action( 'admin_init'                , array( 'Genesis_Author_Pro_CPT', 'remove_genesis_layout_options'     ), 11    );
+	add_action( 'init', array( 'Genesis_Author_Pro_CPT', 'maybe_remove_genesis_sidebar_form' ), 11 );
+	add_action( 'admin_init', array( 'Genesis_Author_Pro_CPT', 'remove_genesis_layout_options' ), 11 );
 	add_filter( 'template_include', array( 'Genesis_Author_Pro_Template', 'maybe_include_template' ) );
-	add_action( $archive_page_hook          , array( 'Genesis_Author_Pro'    , 'maybe_enqueue_scripts'             )        );
-	add_action( 'widgets_init'              , array( 'Genesis_Author_Pro'    , 'widgets_init'                      )        );
+	add_action( $archive_page_hook, array( 'Genesis_Author_Pro', 'maybe_enqueue_scripts' ) );
+	add_action( 'widgets_init', array( 'Genesis_Author_Pro', 'widgets_init' ) );
 
 }
 
@@ -110,44 +110,44 @@ add_action( 'after_setup_theme', array( 'Genesis_Author_Pro_CPT', 'maybe_add_ima
 add_action( 'init', 'osom_author_pro_register_block_bindings' );
 function osom_author_pro_register_block_bindings() {
 	$bindings = array(
-		'osom-author-pro/book-featured-text' => array(
+		'osom-author-pro/book-featured-text'    => array(
 			'label' => __( 'Featured Text', 'genesis-author-pro' ),
-			'key' => 'featured_text',
+			'key'   => 'featured_text',
 		),
-		'osom-author-pro/book-price' => array(
+		'osom-author-pro/book-price'            => array(
 			'label' => __( 'Book Price', 'genesis-author-pro' ),
-			'key' => 'price',
+			'key'   => 'price',
 		),
-		'osom-author-pro/book-isbn' => array(
+		'osom-author-pro/book-isbn'             => array(
 			'label' => __( 'Book ISBN', 'genesis-author-pro' ),
-			'key' => 'isbn',
+			'key'   => 'isbn',
 		),
-		'osom-author-pro/book-publisher' => array(
+		'osom-author-pro/book-publisher'        => array(
 			'label' => __( 'Book Publisher', 'genesis-author-pro' ),
-			'key' => 'publisher',
+			'key'   => 'publisher',
 		),
-		'osom-author-pro/book-editor' => array(
+		'osom-author-pro/book-editor'           => array(
 			'label' => __( 'Book Editor', 'genesis-author-pro' ),
-			'key' => 'editor',
+			'key'   => 'editor',
 		),
-		'osom-author-pro/book-edition' => array(
+		'osom-author-pro/book-edition'          => array(
 			'label' => __( 'Book Edition', 'genesis-author-pro' ),
-			'key' => 'edition',
+			'key'   => 'edition',
 		),
 		'osom-author-pro/book-publication-date' => array(
 			'label' => __( 'Book Publication Date', 'genesis-author-pro' ),
-			'key' => 'publication_date',
+			'key'   => 'publication_date',
 		),
-		'osom-author-pro/book-available-in' => array(
+		'osom-author-pro/book-available-in'     => array(
 			'label' => __( 'Book Available In', 'genesis-author-pro' ),
-			'key' => 'available',
+			'key'   => 'available',
 		),
 	);
 
 	foreach ( $bindings as $block_type => $binding ) {
 		register_block_bindings_source( $block_type, array(
-			'label' => $binding['label'],
-			'get_value_callback' => function( $source_args ) use ( $binding ) {
+			'label'              => $binding['label'],
+			'get_value_callback' => function ( $source_args ) use ( $binding ) {
 				return osom_author_pro_get_metadata_value( $binding['key'] );
 			},
 		) );
@@ -163,9 +163,9 @@ function osom_author_pro_get_metadata_value( $key ) {
 	$meta_value = get_post_meta( $post_id, '_genesis_author_pro', true );
 
 	// Extract the value based on key
-	$value = $meta_value[ $key ] ?? __( 'Value not set', 'genesis-author-pro' );
+	$value = $meta_value[$key] ?? __( 'Value not set', 'genesis-author-pro' );
 
-	if ($key == 'publication_date') {
+	if ( $key == 'publication_date' ) {
 		$value = date_i18n( get_option( 'date_format' ), $value );
 	}
 
@@ -182,9 +182,9 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'title'      => 'Featured Text',
 			'icon'       => 'book-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'featured' ),
+			'keywords'   => array( 'book', 'author', 'featured' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-featured-text',
@@ -193,13 +193,13 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Featured Text',
+					'name'     => 'Featured Text',
 				),
-				'placeholder' => __('Featured text'),
+				'placeholder' => __( 'Featured text' ),
 			),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-price',
@@ -207,7 +207,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 			'icon'       => 'money-alt',
 			'category'   => 'author-pro',
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-price',
@@ -216,23 +216,23 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Price',
+					'name'     => 'Price',
 				),
-				'placeholder' => __('Book price'),
+				'placeholder' => __( 'Book price' ),
 			),
-			'keywords'   => array( 'book', 'author pro', 'price' ),
+			'keywords'   => array( 'book', 'author', 'price' ),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-isbn',
 			'title'      => 'ISBN',
 			'icon'       => 'book-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'isbn' ),
+			'keywords'   => array( 'book', 'author', 'isbn' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-isbn',
@@ -241,22 +241,22 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'ISBN',
+					'name'     => 'ISBN',
 				),
-				'placeholder' => __('ISBN'),
+				'placeholder' => __( 'ISBN' ),
 			),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-publisher',
 			'title'      => 'Book Publisher',
 			'icon'       => 'building',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'publisher' ),
+			'keywords'   => array( 'book', 'author', 'publisher' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-publisher',
@@ -265,22 +265,22 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Publisher',
+					'name'     => 'Publisher',
 				),
-				'placeholder' => __('Book publisher'),
+				'placeholder' => __( 'Book publisher' ),
 			),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-editor',
 			'title'      => 'Book Editor',
 			'icon'       => 'edit',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'editor' ),
+			'keywords'   => array( 'book', 'author', 'editor' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-editor',
@@ -289,22 +289,22 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Editor',
+					'name'     => 'Editor',
 				),
-				'placeholder' => __('Book editor'),
+				'placeholder' => __( 'Book editor' ),
 			),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-edition',
 			'title'      => 'Book Edition',
 			'icon'       => 'book',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'edition' ),
+			'keywords'   => array( 'book', 'author', 'edition' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-edition',
@@ -313,22 +313,22 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Edition',
+					'name'     => 'Edition',
 				),
-				'placeholder' => __('Book edition.'),
+				'placeholder' => __( 'Book edition.' ),
 			),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-publication-date',
 			'title'      => 'Book Publication Date',
 			'icon'       => 'calendar-alt',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'publication date', 'date' ),
+			'keywords'   => array( 'book', 'author', 'publication date', 'date' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-publication-date',
@@ -337,22 +337,22 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Publication Date',
+					'name'     => 'Publication Date',
 				),
-				'placeholder' => __('Publication date'),
+				'placeholder' => __( 'Publication date' ),
 			),
 		);
 	}
-	
+
 	if ( 'core/paragraph' === $block_type->name ) {
 		$variations[] = array(
 			'name'       => 'book-available-in',
 			'title'      => 'Book Available In',
 			'icon'       => 'admin-site-alt3',
 			'category'   => 'author-pro',
-			'keywords'   => array( 'book', 'author pro', 'available'),
+			'keywords'   => array( 'book', 'author', 'available' ),
 			'attributes' => array(
-				'metadata' => array(
+				'metadata'    => array(
 					'bindings' => array(
 						'content' => array(
 							'source' => 'osom-author-pro/book-available-in',
@@ -361,9 +361,9 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 							),
 						),
 					),
-					'name' => 'Available In',
+					'name'     => 'Available In',
 				),
-				'placeholder' => __('Available locations'),
+				'placeholder' => __( 'Available locations' ),
 			),
 		);
 	}
@@ -371,15 +371,109 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 	return $variations;
 }
 
-// Adding Author Pro block category
-add_filter( 'block_categories_all', 'osom_author_pro_block_category', 10, 2);
+// Adding Osom Author Pro block category
+add_filter( 'block_categories_all', 'osom_author_pro_block_category', 10, 2 );
 function osom_author_pro_block_category( $categories, $post ) {
-	
+
 	array_unshift( $categories, array(
-		'slug'	=> 'author-pro',
-		'title' => 'Author Pro',
+		'slug'  => 'osom-author-pro',
+		'title' => 'Osom Author Pro',
 		'icon'  => 'book',
 	) );
 
 	return $categories;
+}
+
+// Register block patterns
+add_action( 'init', 'osom_author_pro_register_block_patterns' );
+function osom_author_pro_register_block_patterns() {
+	register_block_pattern(
+		'osom-two-columns-book-template',
+		array(
+			'title'       => __( 'Two columm book template', 'genesis-author-pro' ),
+			'description' => __( 'Displays book featured image on one column and the book info as list on the other', 'genesis-author-pro' ),
+			'categories'  => array( 'osom-author-pro, author, book' ),
+			'content'     => '<!-- wp:column -->
+			<div class="wp-block-column"><!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group"><!-- wp:paragraph -->
+			<p><strong>Featured text</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter featured text...","metadata":{"bindings":{"content":{"source":"osom/book-featured-text","args":{"key":"featured_text"}}},"name":"Featured Text"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group"><!-- wp:paragraph -->
+			<p><strong>Price</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter book price...","metadata":{"bindings":{"content":{"source":"osom/book-price","args":{"key":"price"}}},"name":"Price"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"},"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>ISBN</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter ISBN...","metadata":{"bindings":{"content":{"source":"osom/book-isbn","args":{"key":"isbn"}}},"name":"ISBN"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Editor</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter book editor...","metadata":{"bindings":{"content":{"source":"osom/book-editor","args":{"key":"editor"}}},"name":"Editor"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Publisher</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter book publisher...","metadata":{"bindings":{"content":{"source":"osom/book-publisher","args":{"key":"publisher"}}},"name":"Publisher"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Edition</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter book edition...","metadata":{"bindings":{"content":{"source":"osom/book-edition","args":{"key":"edition"}}},"name":"Edition"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Publication date</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter publication date...","metadata":{"bindings":{"content":{"source":"osom/book-publication-date","args":{"key":"April 5, 2024"}}},"name":"Publication Date"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Available in</strong>:</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"placeholder":"Enter available locations...","metadata":{"bindings":{"content":{"source":"osom/book-available-in","args":{"key":"available"}}},"name":"Available In"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group --></div>
+			<!-- /wp:column -->',
+		),
+	);
 }
