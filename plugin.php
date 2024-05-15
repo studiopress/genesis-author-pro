@@ -392,7 +392,89 @@ function osom_author_pro_register_block_patterns() {
 		array(
 			'title'       => __( 'Two columm book template', 'genesis-author-pro' ),
 			'description' => __( 'Displays book featured image on one column and the book info as list on the other', 'genesis-author-pro' ),
-			'content'     => '<!-- wp:columns --><div class="wp-block-columns"><!-- wp:column --><div class="wp-block-column"><!-- wp:post-featured-image {"aspectRatio":"auto","height":"400px"} /--></div><!-- /wp:column --><!-- wp:column {"verticalAlignment":"center","style":{"spacing":{"blockGap":"0px"}}} --><div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"placeholder":"Featured text","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-featured-text","args":{"key":"featured_text"}}},"name":"Featured Text"}} --><p></p><!-- /wp:paragraph --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group"><!-- wp:paragraph --><p><strong>Price</strong>:</p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"Book price","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-price","args":{"key":"price"}}},"name":"Price"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph --><p><strong>Edition</strong>: </p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"Book edition.","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-edition","args":{"key":"edition"}}},"name":"Edition"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph --><p><strong>ISBN</strong>: </p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"ISBN","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-isbn","args":{"key":"isbn"}}},"name":"ISBN"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph --><p><strong>Editor</strong>: </p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"Book editor","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-editor","args":{"key":"editor"}}},"name":"Editor"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph --><p><strong>Publisher</strong>: </p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"Book publisher","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-publisher","args":{"key":"publisher"}}},"name":"Publisher"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph --><p><strong>Publication date</strong>: </p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"Publication date","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-publication-date","args":{"key":"publication_date"}}},"name":"Publication Date"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --><!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} --><div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph --><p><strong>Available in</strong>: </p><!-- /wp:paragraph --><!-- wp:paragraph {"placeholder":"Available locations","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-available-in","args":{"key":"available"}}},"name":"Available In"}} --><p></p><!-- /wp:paragraph --></div><!-- /wp:group --></div><!-- /wp:column --></div><!-- /wp:columns -->',
+			'content'     => '<!-- wp:columns -->
+			<div class="wp-block-columns"><!-- wp:column -->
+			<div class="wp-block-column"><!-- wp:post-featured-image {"aspectRatio":"auto","height":"400px"} /--></div>
+			<!-- /wp:column -->
+			
+			<!-- wp:column {"verticalAlignment":"center","style":{"spacing":{"blockGap":"0px"}}} -->
+			<div class="wp-block-column is-vertically-aligned-center"><!-- wp:paragraph {"align":"center","placeholder":"Featured text","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-featured-text","args":{"key":"featured_text"}}},"name":"Featured Text"},"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}},"spacing":{"padding":{"right":"0","left":"0","top":"0","bottom":"0"},"margin":{"top":"0","bottom":"0"}},"typography":{"letterSpacing":"1.5px","textTransform":"capitalize","fontStyle":"normal","fontWeight":"700"}},"backgroundColor":"accent","textColor":"contrast","fontSize":"small"} -->
+			<p class="has-text-align-center has-contrast-color has-accent-background-color has-text-color has-background has-link-color has-small-font-size" style="margin-top:0;margin-bottom:0;padding-top:0;padding-right:0;padding-bottom:0;padding-left:0;font-style:normal;font-weight:700;letter-spacing:1.5px;text-transform:capitalize"></p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:post-terms {"term":"book-authors","style":{"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10"}},"typography":{"fontStyle":"normal","fontWeight":"700"}},"className":"is-style-default","fontSize":"medium"} /-->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group"><!-- wp:paragraph -->
+			<p><strong>Price</strong>:</p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"Book price","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-price","args":{"key":"price"}}},"name":"Price"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Edition</strong>: </p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"Book edition.","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-edition","args":{"key":"edition"}}},"name":"Edition"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>ISBN</strong>: </p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"ISBN","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-isbn","args":{"key":"isbn"}}},"name":"ISBN"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Editor</strong>: </p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"Book editor","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-editor","args":{"key":"editor"}}},"name":"Editor"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Publisher</strong>: </p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"Book publisher","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-publisher","args":{"key":"publisher"}}},"name":"Publisher"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Publication date</strong>: </p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"Publication date","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-publication-date","args":{"key":"publication_date"}}},"name":"Publication Date"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group -->
+			
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|20","margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+			<div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--20)"><!-- wp:paragraph -->
+			<p><strong>Available in</strong>: </p>
+			<!-- /wp:paragraph -->
+			
+			<!-- wp:paragraph {"placeholder":"Available locations","metadata":{"bindings":{"content":{"source":"osom-author-pro/book-available-in","args":{"key":"available"}}},"name":"Available In"}} -->
+			<p></p>
+			<!-- /wp:paragraph --></div>
+			<!-- /wp:group --></div>
+			<!-- /wp:column --></div>
+			<!-- /wp:columns -->',
 			'categories'  => array( 'Osom Author Pro' ),
 			'keywords'    => array( 'author', 'book', 'osom' ),
 		)
