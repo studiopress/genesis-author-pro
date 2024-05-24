@@ -396,6 +396,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 								'key' => 'button_1_uri',
 							),
 						),
+					),
 					'name'     => 'Button 1',
 				),
 				'placeholder' => __( 'Button 1' ),
@@ -569,15 +570,12 @@ function osom_author_pro_register_block_patterns() {
 	);
 }
 
-function is_genesis_theme_2() {
-	return ( wp_get_theme()->parent() && 'Genesis' === wp_get_theme()->parent()->get( 'Name' ) );
-}
-
 // Hide book button text field on non Genesis themes
 add_action( 'admin_head', 'osom_custom_admin_css' );
 function osom_custom_admin_css() {
-	global $pagenow;
-	if ( !is_genesis_theme_2() ) {
+	// Check if the parent theme is Genesis Framework
+	$parent_theme = wp_get_theme()->parent();
+	if ( !$parent_theme || 'Genesis' !== $parent_theme->get( 'Name' ) ) {
 		echo '
         <style>
         #genesis_author_pro_book_meta tr:nth-child(2) {
