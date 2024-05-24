@@ -586,7 +586,7 @@ function osom_custom_admin_css() {
 	if ( !$parent_theme || 'Genesis' !== $parent_theme->get( 'Name' ) ) {
 		echo '
         <style>
-        #genesis_author_pro_book_meta tr:nth-child(2) {
+        #genesis_author_pro_book_meta table table tr:nth-child(2) {
             display: none;
         }
         </style>';
