@@ -363,7 +363,7 @@ function osom_author_pro_block_type_variations( $variations, $block_type ) {
 					),
 					'name'     => 'Available In',
 				),
-				'placeholder' => __( 'Available locations' ),
+				'placeholder' => __( 'Available formats' ),
 			),
 		);
 	}
