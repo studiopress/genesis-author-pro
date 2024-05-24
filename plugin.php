@@ -476,9 +476,7 @@ function osom_author_pro_register_block_patterns() {
 		array(
 			'title'       => __( 'Two columm book template', 'genesis-author-pro' ),
 			'description' => __( 'Displays book featured image on one column and the book info as list on the other', 'genesis-author-pro' ),
-			'content'     => 'Patrón Author Pro
-
-			<!-- wp:columns -->
+			'content'     => '<!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column -->
 			<div class="wp-block-column"><!-- wp:post-featured-image {"aspectRatio":"auto","height":"400px"} /--></div>
 			<!-- /wp:column -->
