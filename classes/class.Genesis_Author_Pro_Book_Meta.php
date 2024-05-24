@@ -251,19 +251,19 @@ class Genesis_Author_Pro_Book_Meta {
 			array(
 				'name'        => 'button_1',
 				'label'       => __( 'Button 1', 'genesis-author-pro' ),
-				'description' => __( 'This will create a button on the book page that can be used as a link for purchase, download, etc.', 'genesis-author-pro' ),
+				'description' => __( 'In Genesis Child Themes this will create a button on the book page that can be used as a link for purchase, download, etc.<br>In other themes, this will be the URL of the "Book Bottom #" block.', 'genesis-author-pro' ),
 				'type'        => 'button',
 			),
 			array(
 				'name'        => 'button_2',
 				'label'       => __( 'Button 2', 'genesis-author-pro' ),
-				'description' => __( 'This will create a button on the book page that can be used as a link for purchase, download, etc.', 'genesis-author-pro' ),
+				'description' => __( 'In Genesis Child Themes this will create a button on the book page that can be used as a link for purchase, download, etc.<br>In other themes, this will be the URL of the "Book Bottom #" block.', 'genesis-author-pro' ),
 				'type'        => 'button',
 			),
 			array(
 				'name'        => 'button_3',
 				'label'       => __( 'Button 3', 'genesis-author-pro' ),
-				'description' => __( 'This will create a button on the book page that can be used as a link for purchase, download, etc.', 'genesis-author-pro' ),
+				'description' => __( 'In Genesis Child Themes this will create a button on the book page that can be used as a link for purchase, download, etc.<br>In other themes, this will be the URL of the "Book Bottom #" block.', 'genesis-author-pro' ),
 				'type'        => 'button',
 			),
 		);
