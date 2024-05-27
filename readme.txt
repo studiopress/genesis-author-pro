@@ -98,7 +98,7 @@ To help you find all Author Pro Blocks, we created an Author Pro pattern that in
 == Changelog ==
 
 = 2.0 =
-* Add the ability to display the book details (Price, ISBN, author...) using native blocks.
+* Added the ability to display the book details (Price, ISBN, author...) using native blocks.
 * You will find, on the block editor, a new category called "Author Pro" containing all the new available blocks. 
 
 = 1.2.2 =
