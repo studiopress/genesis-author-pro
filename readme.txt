@@ -98,6 +98,7 @@ To help you find all Author Pro Blocks, we created an Author Pro pattern that in
 == Changelog ==
 
 = 2.0 =
+* Name change from Genesis Author Pro to Osom Author Pro, since the functionality it's not longer tied to Genesis child themes. Genesis users fear not, all the existing functionality will work as usual but you will find new options.
 * Added the ability to display the book details (Price, ISBN, author...) using native blocks.
 * You will find, on the block editor, a new category called "Author Pro" containing all the new available blocks. 
 
