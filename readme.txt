@@ -74,6 +74,16 @@ For Genesis child themes it also offer templates that are built into the plugin 
 * taxonomy-book-series.php
 * taxonomy-book-tags.php
 
+= Quick Setup Videos =
+
+https://youtu.be/ZlY-lx8nKtM
+
+If you want more info about the setup and configuration you can check the tutorial below.
+
+= Tutorial =
+
+* [Create Your Own Book Library in a WordPress Block Theme](https://osompress.com/create-book-library-wordpress-block-theme/)
+
 == Installation ==
 
 1. Upload `genesis-author-pro` directory to the `/wp-content/plugins/` directory
@@ -83,7 +93,7 @@ For Genesis child themes it also offer templates that are built into the plugin 
 
 = I don't see the dedicated button blocks under the "Author Pro" category, where are they?  =
 
-The dedicated Author Pro buttons 1, 2 and 3 will appear in your block panel to be selected when you are inside a native button block. If you are not inside a button block you will not see them. 
+The dedicated Author Pro buttons 1, 2 and 3 will appear in your block panel to be selected when you are inside a native buttons block. If you are not inside a buttons block you will not see them. 
 
 To help you find all Author Pro Blocks, we created an Author Pro pattern that includes all Author Pro blocks. 
 
